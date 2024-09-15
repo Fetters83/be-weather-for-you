@@ -1,0 +1,41 @@
+{
+  "name": "be-weather-for-you",
+  "version": "1.0.0",
+  "description": "backend Weather For You application",
+  "main": "listen.js",
+  "scripts": {
+    "test": "jest",
+    "prepare": "husky install",
+    "start": "node listen.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fetters83/be-weather-for-you.git"
+  },
+  "author": "William Gyves-Smart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fetters83/be-weather-for-you/issues"
+  },
+  "homepage": "https://github.com/Fetters83/be-weather-for-you#readme",
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "jest-extended": "^4.0.2",
+    "jest-sorted": "^1.0.15",
+    "supertest": "^7.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "node-fetch": "^2.7.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "jest-extended/all",
+      "jest-sorted"
+    ]
+  }
+}
