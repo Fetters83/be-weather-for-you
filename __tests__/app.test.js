@@ -42,6 +42,43 @@ describe("/api/current/:locale", () => {
         expect(body.msg).toBe('location does not exist, please try again')
     })
   })
-
-
 });
+
+describe('/api/forecast/Stockport',()=>{
+  test('GET 200 - should return an object detailing the location and an array of three days of forecast',()=>{
+    return request(app)
+    .get('/api/forecast/Stockport')
+    .expect(200)
+    .then(({body})=>{
+      expect(body).toEqual(
+        expect.objectContaining({
+          name: expect.any(String),
+          region: expect.any(String),
+          country: expect.any(String),
+          forecast:expect.any(Array)
+        })
+      )
+      expect(body.forecast).toHaveLength(3)
+      expect(body.name).toBe("Stockport");
+      expect(body.region).toBe("Greater Manchester");
+      expect(body.country).toBe("United Kingdom");
+
+      })
+    })
+    test('GET 400 - should return a status of 400 and an error message when number passed as locale',()=>{
+      return request(app)
+      .get("/api/forecast/9999")
+      .expect(400)
+      .then(({body})=>{
+          expect(body.msg).toBe('location must be in text format')
+      })
+    })
+    test('GET 404 - should return a status of 404 when valid locale requested but does not exist and an error message',()=>{
+      return request(app)
+      .get("/api/forecast/XXXX")
+      .expect(404)
+      .then(({body})=>{
+          expect(body.msg).toBe('location does not exist, please try again')
+      })
+    })
+  })

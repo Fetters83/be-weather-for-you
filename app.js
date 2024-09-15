@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors');
-const { getCurrent, getCurrent2 } = require('./controllers/getCurrent.controllers');
+const { getCurrent} = require('./controllers/getCurrent.controllers');
+const { getForecast } = require('./controllers/getForecast.controllers');
 
 
 
@@ -9,7 +10,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/api/current/:locale',getCurrent) 
-
+app.get('/api/forecast/:locale',getForecast) 
 //Error handling middleware
 
 app.use((err,req,res,next)=>{
