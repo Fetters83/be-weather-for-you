@@ -82,3 +82,14 @@ describe('/api/forecast/Stockport',()=>{
       })
     })
   })
+
+  describe('/api',()=>{
+    test('GET 200: an array with length 6 should be returned',()=>{
+      return request(app)
+      .get("/api")
+      .expect(200)
+      .then(({body:{capitalsConditions}})=>{
+        expect(capitalsConditions).toHaveLength(6)
+      })
+    })
+  })
