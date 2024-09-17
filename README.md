@@ -42,6 +42,14 @@ This `README.md` provides installation steps, usage instructions, endpoint descr
 
 
 ## API Endpoints
+### Retrieve 6 capital cities:
+GET /api
+
+Description: Retrieves the current weather for 6 locations on the landing screen.
+Parameters: :none
+Example: /api
+
+
 ### Retrieve Current Weather:
 GET /api/current/:locale
 
